@@ -6,7 +6,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/suzuki-shunsuke/go-graylog"
+	"github.com/suzuki-shunsuke/graylog-mock-server/mockserver"
 	"github.com/suzuki-shunsuke/graylog-mock-server/mockserver/exec/usecase"
 )
 
@@ -28,7 +28,7 @@ OPTIONS:
    --data value       data file path. When the server runs data of the file is loaded and when data of the server is changed data is saved at the file. If this option is not set, no data is loaded and saved.
    --help, -h         show help
    --version, -v      print the version
-`, graylog.Version)
+`, mockserver.Version)
 }
 
 // Run runs a mock server.
@@ -51,7 +51,7 @@ func Run() {
 		return
 	}
 	if *versionFlag {
-		fmt.Println(graylog.Version)
+		fmt.Println(mockserver.Version)
 		return
 	}
 
