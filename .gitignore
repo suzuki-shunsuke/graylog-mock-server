@@ -1,0 +1,7 @@
+coverage.txt
+coverage
+node_modules
+*.log
+graylog-mock-server
+dist
+.git-rm-branch.yml
