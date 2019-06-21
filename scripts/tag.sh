@@ -37,4 +37,3 @@ EOS
 
 git add $VERSION_FILE
 git commit -m "build: update version to $VERSION"
-npm run release -- --release-as $TAG
