@@ -7,9 +7,21 @@
 
 [Graylog](https://www.graylog.org/) v2.5 API mock server (deprecated)
 
+This was migrated from https://github.com/suzuki-shunsuke/go-graylog/tree/v2.6.0/mockserver .
+
+## Note: This repository is deprecated
+
+https://github.com/suzuki-shunsuke/go-graylog/issues/66#issuecomment-493735042
+
+graylog-mock-server won't support Graylog v3.
+We haven't developed this for a long time.
+Originally we developed graylog-mock-server for test of [go-graylog](https://github.com/suzuki-shunsuke/go-graylog) .
+We thought it is useful especially for test of terraform-provider-graylog at CI.
+But we found that the development of graylog-mock-server is too expensive.
+
 ## Install
 
-Download a binary from [the release page](https://github.com/suzuki-shunsuke/go-graylog/releases).
+Download a binary from [the release page](https://github.com/suzuki-shunsuke/graylog-mock-server/releases).
 
 ## Usage
 
