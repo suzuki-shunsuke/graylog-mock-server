@@ -37,3 +37,5 @@ EOS
 
 git add $VERSION_FILE
 git commit -m "build: update version to $VERSION"
+echo "git tag $TAG"
+git tag $TAG
