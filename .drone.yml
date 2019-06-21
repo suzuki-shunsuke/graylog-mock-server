@@ -28,6 +28,13 @@ workspace:
   base: /go
   path: src/github.com/suzuki-shunsuke/graylog-mock-server
 steps:
+- name: download go modules
+  image: &image_go golang:1.12.6
+  commands:
+  - go mod download
+  environment:
+    GO111MODULE: on
+    GOPATH: /go
 - name: golangci-lint
   image: golangci/golangci-lint:v1.17.1
   commands:
@@ -36,7 +43,7 @@ steps:
     GO111MODULE: on
     GOPATH: /go
 - name: codecov
-  image: &image_go golang:1.12.6
+  image: *image_go
   commands:
   # bash and cgo seem to be required
   - bash scripts/codecov-test.sh
