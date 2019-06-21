@@ -25,4 +25,16 @@ fi
 echo "cd `dirname $0`/.."
 cd `dirname $0`/..
 
+VERSION_FILE=mockserver/version.go
+
+echo "create $VERSION_FILE"
+cat << EOS > $VERSION_FILE
+package mockserver
+
+// Version is the graylog-mock-server's version.
+const Version = "$VERSION"
+EOS
+
+git add $VERSION_FILE
+git commit -m "build: update version to $VERSION"
 npm run release -- --release-as $TAG
