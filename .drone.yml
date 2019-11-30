@@ -24,24 +24,25 @@ steps:
 ---
 kind: pipeline
 name: build
-workspace:
-  base: /go
-  path: src/github.com/suzuki-shunsuke/graylog-mock-server
+clone:
+  depth: 1
+volumes:
+- name: gopath
+  temp: {}
 steps:
 - name: download go modules
-  image: &image_go golang:1.12.6
+  image: &image_go golang:1.13.4
   commands:
   - go mod download
   environment:
-    GO111MODULE: on
     GOPATH: /go
 - name: golangci-lint
-  image: golangci/golangci-lint:v1.17.1
+  image: golangci/golangci-lint:v1.21.0-alpine
   commands:
   - golangci-lint run
   environment:
-    GO111MODULE: on
     GOPATH: /go
+  volumes: *volumes
 - name: codecov
   image: *image_go
   commands:
@@ -50,40 +51,51 @@ steps:
   - curl -s https://codecov.io/bash > /tmp/codecov.sh
   - test "$LOCAL" = "true" -o "$DRONE_BUILD_EVENT" = "pull_request" || bash /tmp/codecov.sh
   environment:
-    GO111MODULE: on
     GOPATH: /go
     CODECOV_TOKEN:
       from_secret: codecov_token
-- name: build
-  image: &image_gox suzukishunsuke/gox:1.0.1__0.1.0
+- name: remove changes
+  image: &image_git plugins/git
   commands:
-  - gox -output="dist/${DRONE_TAG}/graylog-mock-server_${DRONE_TAG}_{{.OS}}_{{.Arch}}" -osarch="darwin/amd64 linux/amd64 windows/amd64" ./mockserver/exec
-  - ls dist/${DRONE_TAG} | xargs -I {} gzip dist/${DRONE_TAG}/{}
-  environment:
-    GOPATH: /go
-    GO111MODULE: on
+  # Sometimes it is failed to release by goreleaser due to changes of go.sum
+  - git checkout -- .
+
+- name: fetch tags to release
+  image: *image_git
+  commands:
+  - git fetch --tags
   when:
     event:
     - tag
-- name: build test
-  image: *image_gox
+- name: release
+  image: &goreleaser goreleaser/goreleaser:v0.123.3
   commands:
-  - gox -output="dist/v0.1.0/graylog-mock-server_v0.1.0_{{.OS}}_{{.Arch}}" -osarch="darwin/amd64 linux/amd64 windows/amd64" ./mockserver/exec
-  - ls dist/v0.1.0 | xargs -I {} gzip dist/v0.1.0/{}
+  - goreleaser release
   environment:
     GOPATH: /go
-    GO111MODULE: on
-  when:
-    event:
-    - push
-    - pull_request
-- name: release
-  image: suzukishunsuke/ghr
-  commands:
-  - ghr -u suzuki-shunsuke -r graylog-mock-server ${DRONE_TAG} dist/${DRONE_TAG}
-  environment:
     GITHUB_TOKEN:
       from_secret: github_token
+  volumes: *volumes
   when:
     event:
     - tag
+
+- name: create a dummy tag to test releasing
+  image: *image_git
+  commands:
+  - git tag v0.1.0-alpha
+  when:
+    event:
+    - pull_request
+    - push
+- name: release (skip publish)
+  image: *goreleaser
+  commands:
+  - goreleaser release --skip-publish
+  environment:
+    GOPATH: /go
+  volumes: *volumes
+  when:
+    event:
+    - pull_request
+    - push
