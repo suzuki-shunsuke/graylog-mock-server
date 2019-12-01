@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/suzuki-shunsuke/go-graylog"
-	"github.com/suzuki-shunsuke/go-graylog/testutil"
+	"github.com/suzuki-shunsuke/go-graylog/v8"
+	"github.com/suzuki-shunsuke/go-graylog/testutil/v8"
 	"github.com/suzuki-shunsuke/go-set"
 )
 
