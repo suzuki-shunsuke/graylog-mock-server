@@ -1,8 +1,8 @@
 package logic
 
 import (
-	"github.com/suzuki-shunsuke/go-graylog/v8"
-	"github.com/suzuki-shunsuke/go-graylog/validator/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
+	"github.com/suzuki-shunsuke/go-graylog/validator"
 )
 
 // GetLDAPSetting returns a LDAP Setting.

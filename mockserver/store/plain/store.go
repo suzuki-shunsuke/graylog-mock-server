@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/suzuki-shunsuke/go-graylog/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
 	"github.com/suzuki-shunsuke/graylog-mock-server/mockserver/store"
 )
 

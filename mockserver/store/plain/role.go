@@ -3,7 +3,7 @@ package plain
 import (
 	"fmt"
 
-	"github.com/suzuki-shunsuke/go-graylog/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
 )
 
 // HasRole returns whether the role exists.

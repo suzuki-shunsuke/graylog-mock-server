@@ -6,8 +6,8 @@ import (
 
 	"github.com/suzuki-shunsuke/go-ptr"
 
-	"github.com/suzuki-shunsuke/go-graylog/v8"
-	"github.com/suzuki-shunsuke/go-graylog/testutil/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
+	"github.com/suzuki-shunsuke/go-graylog/testutil"
 )
 
 func TestHandleGetIndexSets(t *testing.T) {

@@ -3,7 +3,7 @@ package plain_test
 import (
 	"testing"
 
-	"github.com/suzuki-shunsuke/go-graylog/testutil/v8"
+	"github.com/suzuki-shunsuke/go-graylog/testutil"
 	"github.com/suzuki-shunsuke/graylog-mock-server/mockserver/store/plain"
 )
 

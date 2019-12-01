@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/suzuki-shunsuke/go-graylog/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
 	"github.com/suzuki-shunsuke/graylog-mock-server/mockserver/logic"
 )
 

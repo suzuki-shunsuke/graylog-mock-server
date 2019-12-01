@@ -1,7 +1,7 @@
 package seed
 
 import (
-	"github.com/suzuki-shunsuke/go-graylog/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
 	"github.com/suzuki-shunsuke/go-set"
 )
 

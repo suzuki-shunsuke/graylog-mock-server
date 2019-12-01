@@ -1,7 +1,7 @@
 package logic
 
 import (
-	"github.com/suzuki-shunsuke/go-graylog/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
 )
 
 // GetAlertConditions returns a list of alert conditions.

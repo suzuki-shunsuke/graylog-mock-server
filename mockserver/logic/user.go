@@ -6,8 +6,8 @@ import (
 
 	"github.com/suzuki-shunsuke/go-ptr"
 
-	"github.com/suzuki-shunsuke/go-graylog/v8"
-	"github.com/suzuki-shunsuke/go-graylog/validator/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
+	"github.com/suzuki-shunsuke/go-graylog/validator"
 )
 
 func encryptPassword(password string) string {

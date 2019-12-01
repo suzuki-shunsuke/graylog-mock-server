@@ -1,7 +1,7 @@
 package logic
 
 import (
-	"github.com/suzuki-shunsuke/go-graylog/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
 )
 
 // GetAlarmCallbacks returns a list of inputs.
