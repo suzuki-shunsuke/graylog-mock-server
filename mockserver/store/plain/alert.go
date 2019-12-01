@@ -1,7 +1,7 @@
 package plain
 
 import (
-	"github.com/suzuki-shunsuke/go-graylog/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
 )
 
 // HasAlert returns whether the alert exists.

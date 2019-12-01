@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/suzuki-shunsuke/go-graylog/v8"
+	"github.com/suzuki-shunsuke/go-graylog"
 	st "github.com/suzuki-shunsuke/graylog-mock-server/mockserver/store"
 )
 
