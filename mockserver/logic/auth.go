@@ -3,7 +3,7 @@ package logic
 import (
 	"fmt"
 
-	"github.com/suzuki-shunsuke/go-graylog"
+	"github.com/suzuki-shunsuke/go-graylog/v8"
 )
 
 // Authenticate authenticates a user.

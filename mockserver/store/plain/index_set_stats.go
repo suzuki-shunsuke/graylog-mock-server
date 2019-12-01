@@ -1,7 +1,7 @@
 package plain
 
 import (
-	"github.com/suzuki-shunsuke/go-graylog"
+	"github.com/suzuki-shunsuke/go-graylog/v8"
 )
 
 // GetIndexSetStats returns an index set stats.

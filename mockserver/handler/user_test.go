@@ -7,7 +7,7 @@ import (
 
 	"github.com/suzuki-shunsuke/go-set"
 
-	"github.com/suzuki-shunsuke/go-graylog/testutil"
+	"github.com/suzuki-shunsuke/go-graylog/v8/testutil"
 )
 
 func TestHandleGetUsers(t *testing.T) {
