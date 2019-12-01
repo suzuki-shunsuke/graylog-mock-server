@@ -3,7 +3,7 @@ package logic_test
 import (
 	"testing"
 
-	"github.com/suzuki-shunsuke/go-graylog/testutil"
+	"github.com/suzuki-shunsuke/go-graylog/v8/testutil"
 	"github.com/suzuki-shunsuke/graylog-mock-server/mockserver/logic"
 )
 

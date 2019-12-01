@@ -3,7 +3,7 @@ package logic
 import (
 	"fmt"
 
-	"github.com/suzuki-shunsuke/go-graylog"
+	"github.com/suzuki-shunsuke/go-graylog/v8"
 )
 
 // GetAlert returns an alert.

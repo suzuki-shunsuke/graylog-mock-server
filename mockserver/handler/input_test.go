@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/suzuki-shunsuke/go-graylog/testutil"
+	"github.com/suzuki-shunsuke/go-graylog/v8/testutil"
 )
 
 func TestHandleGetInput(t *testing.T) {
